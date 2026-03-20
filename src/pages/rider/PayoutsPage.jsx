@@ -72,10 +72,24 @@ export default function PayoutsPage() {
         {/* Left: List */}
         <div>
           {/* Summary bar */}
-          <button onClick={checkPayoutAPI}>
-  Trigger Payout 💸
-</button>
-          <div className="rounded-2xl p-5 mb-4 flex items-center justify-between"
+
+
+  <button
+    onClick={checkPayoutAPI}
+    style={{
+      marginBottom: "16px",
+      padding: "10px 16px",
+      borderRadius: "10px",
+      background: "#3B82F6",
+      color: "white",
+      fontWeight: "600",
+      border: "none"
+    }}
+  >
+    Trigger Payout 💸
+  </button>
+
+  <div className="rounded-2xl p-5 mb-4 flex items-center justify-between"
             style={{ background:'linear-gradient(135deg,#052e16,#166534)', border:'1px solid rgba(16,185,129,0.2)' }}>
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color:'rgba(52,211,153,0.6)' }}>Total Received</p>

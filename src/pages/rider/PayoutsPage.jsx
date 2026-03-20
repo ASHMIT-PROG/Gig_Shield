@@ -7,6 +7,7 @@ import { formatINR } from '../../utils/currencyHelpers';
 import { MOCK_PAYOUTS } from '../../mockData';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { List, GitBranch, TrendingUp } from 'lucide-react';
+import toast from "react-hot-toast";
 
 const FILTERS = ['All','Completed','Pending','Flagged'];
 const EVT_COLORS = { rain:'#3B82F6', aqi:'#F59E0B', curfew:'#EF4444' };
@@ -34,6 +35,15 @@ function groupByMonth(payouts) {
 }
 
 export default function PayoutsPage() {
+  const checkPayoutAPI = async () => {
+  try {
+    const res = await fetch("http://127.0.0.1:8000/api/payout/check");
+    const data = await res.json();
+    alert(data.message); // simple popup
+  } catch (err) {
+    alert("API error");
+  }
+};
   const { payouts } = usePayouts();
   const [filter,  setFilter]  = useState('All');
   const [viewMode,setViewMode]= useState('list');
@@ -62,6 +72,9 @@ export default function PayoutsPage() {
         {/* Left: List */}
         <div>
           {/* Summary bar */}
+          <button onClick={checkPayoutAPI}>
+  Trigger Payout 💸
+</button>
           <div className="rounded-2xl p-5 mb-4 flex items-center justify-between"
             style={{ background:'linear-gradient(135deg,#052e16,#166534)', border:'1px solid rgba(16,185,129,0.2)' }}>
             <div>

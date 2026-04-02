@@ -72,19 +72,7 @@ export default function LoginPage() {
           AI-powered parametric income protection
         </p>
 
-        {/* Feature pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-2">
-          {[
-            { icon:'🌧️', label:'Rain Coverage' },
-            { icon:'🌫️', label:'AQI Protection' },
-            { icon:'🚔', label:'Curfew Shield' },
-          ].map(f => (
-            <div key={f.label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium"
-              style={{ background:'rgba(255,255,255,0.06)', border:'1px solid var(--border-bright)', color:'var(--text2)' }}>
-              {f.icon} {f.label}
-            </div>
-          ))}
-        </div>
+
       </div>
 
       {/* Bottom sheet */}
